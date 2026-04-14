@@ -1,0 +1,4 @@
+venv/
+*.pem
+*.txt
+.DS_Store
