@@ -1,20 +1,13 @@
 # Python
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-.venv/
 venv/
-ENV/
-env/
-.pytest_cache/
-.coverage
-htmlcov/
+.venv/
 
 # Data & DVC
-data/*
-!data/*.dvc
-!data/.gitignore
+data/**/*.csv
+!data/**/*.csv.dvc
+!data/**/.gitignore
 .dvc/cache/
 .dvc/tmp/
 .dvc/config.local
@@ -26,7 +19,6 @@ mlflow.db
 # OS / IDE
 .DS_Store
 .vscode/
-.idea/
 
 # Assignment specific
 *.pem
