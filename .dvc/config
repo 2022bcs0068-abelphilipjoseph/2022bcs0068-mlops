@@ -3,3 +3,4 @@
     remote = storage
 ['remote "storage"']
     url = s3://mlflow-artifacts-2022bcs0068/dvc-data
+    region = us-east-1
