@@ -1,6 +1,8 @@
 [core]
     no_scm = True
-    remote = storage
+    remote = myremote
 ['remote "storage"']
     url = s3://mlflow-artifacts-2022bcs0068/dvc-data
     region = us-east-1
+['remote "myremote"']
+    url = s3://mlflow-artifacts-2022bcs0068
