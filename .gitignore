@@ -1,6 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
 venv/
-*.pem
-*.txt
+ENV/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Data & DVC
+data/*
+!data/*.dvc
+!data/.gitignore
+.dvc/cache/
+.dvc/tmp/
+.dvc/config.local
+
+# MLflow
+mlruns/
+mlflow.db
+
+# OS / IDE
 .DS_Store
-.dvc/cache
-.dvc/tmp
+.vscode/
+.idea/
+
+# Assignment specific
+*.pem
+*.pdf
+assignment_instructions.txt
+download_data.py
