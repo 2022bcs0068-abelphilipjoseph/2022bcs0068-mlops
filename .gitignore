@@ -2,3 +2,5 @@ venv/
 *.pem
 *.txt
 .DS_Store
+.dvc/cache
+.dvc/tmp
