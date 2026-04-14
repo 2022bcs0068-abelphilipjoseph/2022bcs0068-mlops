@@ -14,6 +14,12 @@ NAME = "abelphilipjoseph"
 ROLL_NO = "2022bcs0068"
 
 def train_model(data_path, model_type, alpha, l1_ratio, n_estimators, feature_selection):
+    # Set remote tracking URI if available
+    tracking_uri = os.environ.get("MLFLOW_TRACKING_URI")
+    if tracking_uri:
+        mlflow.set_tracking_uri(tracking_uri)
+        print(f"Tracking to: {tracking_uri}")
+
     # Set experiment
     mlflow.set_experiment(f"{ROLL_NO}_experiment")
     
@@ -72,10 +78,24 @@ def train_model(data_path, model_type, alpha, l1_ratio, n_estimators, feature_se
             "name": NAME,
             "roll_no": ROLL_NO
         }
+        # Log metrics to MLflow
         mlflow.log_dict(metrics, "metrics.json")
         
-        # Log model
-        mlflow.sklearn.log_model(model, "model")
+        # Also write local metrics.json for GitHub Actions summary
+        import json
+        with open("metrics.json", "w") as f:
+            json.dump(metrics, f, indent=4)
+        print("Successfully wrote metrics.json")
+        
+        # Log and Register model
+        # Using a consistent name to allow the API to 'Pull the latest best'
+        model_name = f"{ROLL_NO}_model"
+        mlflow.sklearn.log_model(
+            sk_model=model, 
+            artifact_path="model",
+            registered_model_name=model_name
+        )
+        print(f"Model registered as: {model_name}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

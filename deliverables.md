@@ -32,7 +32,7 @@ This document tracks all project requirements and serves as a template for the f
 - [x] Run 3 (v2, Base Model A)
 - [x] Run 4 (v2, Model A + Feature Selection)
 - [x] Run 5 (v2, Model B + Feature Selection)
-- [x] **Mandatory**: All runs log Name + Roll No.
+- [x] **Mandatory**: All runs log Name +    Roll No.
 
 ### Part 6: Model Deployment (FastAPI)
 - [x] `/health` returns Name + Roll No
