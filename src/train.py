@@ -23,8 +23,9 @@ def train_model(data_path, model_type, alpha, l1_ratio, n_estimators, feature_se
     # Set experiment
     mlflow.set_experiment(f"{ROLL_NO}_experiment")
     
-    with mlflow.start_run():
+    with mlflow.start_run() as run:
         # Read dataset
+        print(f"Active Run ID: {run.info.run_id}")
         df = pd.read_csv(data_path)
         
         # Identification suffix in logs
