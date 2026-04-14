@@ -86,6 +86,7 @@ def train_model(data_path, model_type, alpha, l1_ratio, n_estimators, feature_se
         import json
         with open("metrics.json", "w") as f:
             json.dump(metrics, f, indent=4)
+        mlflow.log_artifact("metrics.json")
         print("Successfully wrote metrics.json")
         
         # Log and Register model
