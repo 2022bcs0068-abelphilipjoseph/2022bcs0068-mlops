@@ -99,7 +99,7 @@ def train_model(data_path, model_type, alpha, l1_ratio, n_estimators, feature_se
         )
         print(f"Model registered as: {model_name}")
 
-        # Also save locally for GitHub Artifact upload (as per template)
+        # Also save locally for GitHub Artifact upload (as per template;)
         os.makedirs("models", exist_ok=True)
         import joblib
         joblib.dump(model, "models/model.pkl")
